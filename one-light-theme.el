@@ -104,10 +104,19 @@ more...")
       (highlight-current-tag '(:background "#E8E8FF")) ; #EEF3F6 or #FFEB26
   )
 
-  ;; DEFINE COLOR VARS AND USE INSTEAD OF HEX's
+  (let (
+        (alabaster-white "#FAFAFA")
+        (woodsmoke-black "#000000")
+        (dodger-blue "#526FFF")
+        (cornflower-blue-1 "#5871EF")
+        (cornflower-blue-2 "#6B83ED")
+        (allports-blue "#00809B")
+        (iron-grey "#DBDBDC")
+        (concrete-white "#F2F2F2")
+        )
   (custom-theme-set-faces
    'one-light
-   `(default ((,class (:foreground "#121417" :background "#FAFAFA"))))
+   `(default ((,class (:foreground ,woodsmoke-black :background ,alabaster-white))))
    `(bold ((,class (:weight bold :foreground "black"))))
    `(bold-italic ((,class (:weight bold :slant italic :foreground "black"))))
    `(italic ((,class (:slant italic :foreground "#1A1A1A"))))
@@ -983,7 +992,10 @@ more...")
    ;; `(ztreep-node-face ((,class ())))
 
 
-   ))
+   )
+  )
+
+  )
 
 (custom-theme-set-variables 'one-light
 
