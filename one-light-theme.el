@@ -79,8 +79,8 @@ more...")
       (mail-unread-high '(:foreground "#135985"))
       (marked-line '(:foreground "#AA0000" :background "#FFAAAA"))
       (match '(:weight bold :background "#FBE448")) ; occur patterns
-      (ol1 `(,@(leuven-scale-font leuven-scale-outline-headlines 1.3) :weight bold :overline "#A7A7A7" :foreground "#3C3C3C" :background "#F0F0F0"))
-      (ol2 '(:height 1.0 :weight bold :overline "#123555" :foreground "#123555" :background "#E5F4FB"))
+      (ol1 `(,@(leuven-scale-font leuven-scale-outline-headlines 1.3) :weight bold :foreground "#3C3C3C" :background "#F0F0F0"))
+      (ol2 '(:height 1.0 :weight bold :foreground "#123555" :background "#E5F4FB"))
       (ol3 '(:height 1.0 :weight bold :foreground "#005522" :background "#EFFFEF"))
       (ol4 '(:height 1.0 :weight bold :slant normal :foreground "#EA6300"))
       (ol5 '(:height 1.0 :weight bold :slant normal :foreground "#E3258D"))
@@ -147,54 +147,56 @@ more...")
   (custom-theme-set-faces
    'one-light
    `(default ((,class (:foreground ,woodsmoke-black :background ,alabaster-white))))
-   `(bold ((,class (:weight bold :foreground "black"))))
-   `(bold-italic ((,class (:weight bold :slant italic :foreground "black"))))
-   `(italic ((,class (:slant italic :foreground "#1A1A1A"))))
+   `(bold ((,class (:weight bold :foreground ,woodsmoke-black))))
+   `(bold-italic ((,class (:weight bold :slant italic :foreground ,woodsmoke-black))))
+   `(italic ((,class (:slant italic :foreground ,shark-black))))
    `(underline ((,class (:underline t))))
-   `(cursor ((,class (:background "#526FFF"))))
+   `(cursor ((,class (:background ,dodger-blue))))
 
    ;; Lucid toolkit emacs menus.
-   `(menu ((,class (:foreground "#FFFFFF" :background "#333333"))))
+   `(menu ((,class (:foreground ,concrete-white :background ,tuna-grey-1))))
 
    ;; Highlighting faces.
-   `(fringe ((,class (:foreground "#4C9ED9" :background "white"))))
-   `(highlight ((,class ,highlight-blue)))
-   `(region ((,class ,region)))
-   `(secondary-selection ((,class ,match))) ; Used by Org-mode for highlighting matched entries and keywords.
-   `(isearch ((,class (:weight bold :underline "#FF9632" :foreground nil :background "#FDBD33"))))
-   `(isearch-fail ((,class (:weight bold :foreground "black" :background "#FF9999"))))
-   `(lazy-highlight ((,class (:underline "#FF9632" :background "#FFFF00")))) ; isearch others
-   `(trailing-whitespace ((,class ,trailing)))
+   `(fringe ((,class (:foreground ,lochmara-blue :background ,concrete-white))))
+   `(highlight ((,class (:background ,iron-grey-2))))
+   `(region ((,class (:background ,lochmara-blue))))
+   `(secondary-selection ((,class (:background ,buttercup-orange)))) ; Used by Org-mode for highlighting matched entries and keywords.
+   `(isearch ((,class (:foreground nil :background ,iron-grey-3)))) ; isearch current
+   `(lazy-highlight ((,class (:background ,mandy-red)))) ; isearch others
+   `(isearch-fail ((,class (:foreground ,woodsmoke-black :background ,burnt-umber-red)))) ; highlighting failed part in Isearch echo-area message
+   `(trailing-whitespace ((,class :background nil :foreground ,iron-grey-3))) ; trailing whitespace (activate whitespace-mode)
    `(query-replace ((,class (:inherit isearch))))
-   `(whitespace-hspace ((,class (:foreground "#D2D2D2")))) ; see also `nobreak-space'
-   `(whitespace-indentation ((,class ,tab)))
-   `(whitespace-line ((,class (:foreground "#CC0000" :background "#FFFF88"))))
-   `(whitespace-tab ((,class ,tab)))
-   `(whitespace-trailing ((,class ,trailing)))
+   `(whitespace-hspace ((,class (:foreground ,iron-grey-3 :background nil)))) ; see also `nobreak-space'
+   `(whitespace-indentation ((,class (:foreground ,iron-grey-3 :background nil))))
+   `(whitespace-line ((,class (:foreground ,iron-grey-3 :background nil))))
+   `(whitespace-tab ((,class (:foreground ,iron-grey-3 :background nil))))
+   `(whitespace-trailing ((,class :background nil :foreground ,iron-grey-3))) ; trailing whitespace (activate whitespace-mode)
+   `(whitespace-space ((,class :background nil :foreground ,iron-grey-3))) ; all whitespace (activate whitespace-mode)
+   `(whitespace-newline ((,class :background nil :foreground ,iron-grey-3))) ; $ char at eol
 
    ;; Mode line faces.
-   `(mode-line ((,class (:box (:line-width 1 :color "#1A2F54") :foreground "#85CEEB" :background "#335EA8"))))
-   `(mode-line-inactive ((,class (:box (:line-width 1 :color "#4E4E4C") :foreground "#F0F0EF" :background "#9B9C97"))))
-   `(mode-line-buffer-id ((,class (:weight bold :foreground "white"))))
-   `(mode-line-emphasis ((,class (:weight bold :foreground "white"))))
-   `(mode-line-highlight ((,class (:foreground "yellow"))))
+   `(mode-line ((,class (:box (:line-width 1 :color ,woodsmoke-black) :foreground ,java-blue :background ,royal-blue))))
+   `(mode-line-inactive ((,class (:box (:line-width 1 :color ,ship-grey) :foreground ,iron-white :background ,manatee-grey))))
+   `(mode-line-buffer-id ((,class (:weight bold :foreground ,alabaster-white))))
+   `(mode-line-emphasis ((,class (:weight bold :foreground ,alabaster-white))))
+   `(mode-line-highlight ((,class (:foreground ,buttercup-orange))))
 
    ;; Escape and prompt faces.
-   `(minibuffer-prompt ((,class (:weight bold :foreground "black" :background "gold"))))
-   `(minibuffer-noticeable-prompt ((,class (:weight bold :foreground "black" :background "gold"))))
-   `(escape-glyph ((,class (:foreground "#008ED1"))))
-   `(error ((,class (:foreground "red"))))
-   `(warning ((,class (:weight bold :foreground "orange"))))
-   `(success ((,class (:foreground "green"))))
+   `(minibuffer-prompt ((,class (:weight bold :foreground ,woodsmoke-black :background ,buttercup-orange))))
+   `(minibuffer-noticeable-prompt ((,class (:weight bold :foreground ,woodsmoke-black :background ,buttercup-orange))))
+   `(escape-glyph ((,class (:foreground ,lochmara-blue))))
+   `(error ((,class (:foreground ,scarlet-red))))
+   `(warning ((,class (:weight bold :foreground ,buttercup-orange))))
+   `(success ((,class (:foreground ,emerald-green))))
 
    ;; Font lock faces.
-   `(font-lock-builtin-face ((,class (:foreground "#006FE0"))))
-   `(font-lock-comment-delimiter-face ((,class (:foreground "#8D8D84")))) ; #696969
-   `(font-lock-comment-face ((,class (:slant italic :foreground "#8D8D84")))) ; #696969
-   `(font-lock-constant-face ((,class (:foreground "#D0372D"))))
-   `(font-lock-doc-face ((,class (:foreground "#036A07"))))
+   `(font-lock-builtin-face ((,class (:foreground ,royal-blue))))
+   `(font-lock-comment-delimiter-face ((,class (:foreground ,shuttle-grey-2)))) ; #696969
+   `(font-lock-comment-face ((,class (:slant italic :foreground ,shuttle-grey-2)))) ; #696969
+   `(font-lock-constant-face ((,class (:foreground ,crimson-red))))
+   `(font-lock-doc-face ((,class (:foreground ,fruitsalad-green))))
    ;; `(font-lock-doc-string-face ((,class (:foreground "#008000")))) ; XEmacs only, but is used for HTML exports from org2html (and not interactively)
-   `(font-lock-function-name-face ((,class (:weight normal :foreground "#006699"))))
+   `(font-lock-function-name-face ((,class (:weight normal :foreground ,allports-blue))))
    `(font-lock-keyword-face ((,class (:bold nil :foreground "#0000FF")))) ; #3654DC
    `(font-lock-preprocessor-face ((,class (:foreground "#808080"))))
    `(font-lock-regexp-grouping-backslash ((,class (:weight bold :inherit nil))))
@@ -434,8 +436,8 @@ more...")
    `(compilation-mode-line-exit ((,class (:weight bold :foreground "green")))) ; :exit[matched]
    `(compilation-mode-line-fail ((,class (:weight bold :foreground "violet")))) ; :exit[no match]
    `(compilation-mode-line-run ((,class (:weight bold :foreground "orange")))) ; :run
-   `(css-property ((,class (:foreground "#00AA00"))))
-   `(css-selector ((,class (:weight bold :foreground "blue"))))
+   `(css-property ((,class (:foreground ,mandy-red))))
+   `(css-selector ((,class (:foreground ,lochmara-blue))))
    `(custom-button ((,class (:box (:line-width 2 :style released-button) :foreground "black" :background "lightgrey"))))
    `(custom-button-mouse ((,class (:box (:line-width 2 :style released-button) :foreground "black" :background "grey90"))))
    `(custom-button-pressed ((,class (:box (:line-width 2 :style pressed-button) :foreground "black" :background "light grey"))))
@@ -647,6 +649,10 @@ more...")
 
    `(light-symbol-face ((,class (:background "#FFFFA0"))))
    `(linum ((,class (:foreground "#9A9A9A" :background "#EDEDED"))))
+   `(linum-relative ((,class (:foreground "#9A9A9A" :background "#EDEDED"))))
+   `(linum-relative-current-face ((,class (:foreground ,tuna-grey-1 :background ,iron-grey-3))))
+   `(line-number-current-line ((,class (:foreground "#9A9A9A" :background "#EDEDED"))))
+   ;; pline-number-current-line 
    `(log-view-file ((,class (:foreground "#0000CC" :background "#EAF2F5"))))
    `(log-view-message ((,class (:foreground "yellow3"))))
    `(lui-button-face ((,class ,link)))
@@ -865,6 +871,9 @@ more...")
    `(svn-status-symlink-face ((,class ,symlink)))
    `(svn-status-update-available-face ((,class (:foreground "orange"))))
    `(tex-verbatim ((,class (:foreground "blue"))))
+
+   `(typescript--constant-re ((,class (:foreground "blue" :underline "brown"))))
+
    `(tool-bar ((,class (:box (:line-width 1 :style released-button) :foreground "black" :background "gray75"))))
    `(tooltip ((,class (:foreground "black" :background "light yellow"))))
    `(traverse-match-face ((,class (:weight bold :foreground "blue violet"))))
